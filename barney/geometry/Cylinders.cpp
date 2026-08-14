@@ -22,7 +22,8 @@ namespace BARNEY_NS {
         rtc::GeomType *gt
           = device->geomTypes.get(createGeomType_Cylinders);
         rtc::Geom *geom = gt->createGeom();
-        geom->setPrimCount((int)indices->count);
+        size_t numCylinders = indices ? indices->count : 0;
+        geom->setPrimCount((int)numCylinders);
         pld->userGeoms.push_back(geom);
       }
       rtc::Geom *geom = pld->userGeoms[0];
